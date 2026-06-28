@@ -1,0 +1,42 @@
+/* ESTILOS GENERALES EN BASE A LA PALETA DE COLORES DE UCENFOTEC */
+
+:root {
+    /* COLORES PRIMARIOS */
+    --primary-color-1: #164a98;
+    --primary-color-2: #006AEA;
+    --primary-color-3: #9CC8FF;
+    --primary-color-4: #d2d2d2;
+    --primary-color-5: #7c7b75;
+
+    /* COLORES SECUNDARIOS */
+    --secondary-color-1: #fff200;
+    --secondary-color-2: #ffc63e;
+
+    /* COLORES POR ESCUELAS */
+    --information-systems: #2b93d1;
+    --information-technology: #4aa147;
+    --software-engineering: #c81f66;
+    --cybersecurity: #f05323;
+    --computing-fundamentals: #d2232a;
+    --business-administration: #C7AC19;
+    --intelligent-systems: #00734a;
+    --student-affairs: #00928d;
+    --alumni: #712c86;
+
+    /* TIPOGRAFÍA */
+    /* Esta tipografía aún no funciona, hay que importar las fuentes, consultaré si se pueden utilizar fuentes importadas */
+    --titulos: 'Din alternate Bold', sans-serif;
+    --tecnicos: 'Circular Std Book', sans-serif;
+    --bachillerato: 'Circular Std Medium', sans-serif;
+    --maestria: 'Circular Std Bold', sans-serif;
+    --estudiantes: 'Circular Std Black', sans-serif;
+
+    /* COLORES/RECURSOS EXTRA DE UTILIDAD */
+    --white: #ffffff;
+    --black: #000000;
+
+    /* PARA LOGINS O PROCESOS DONDE EL USUARIO DEBE DIGITAR DATOS */
+    --succes: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+}
