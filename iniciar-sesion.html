@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión | Portal de Egresados UCENFOTEC</title>
+
+    <link rel="stylesheet" href="css\estilos-generales.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <figure>
+        <img src="assets\LogoCenfotec.png" width="100" height="50" alt="Logo Universidad CENFOTEC">
+    </figure>
+    <h1>Bienvenido nuevamente</h1>
+    <p>Complete todos los campos obligatorios para iniciar sesión</p>
+</header>
+
+<main>
+    <form action="">
+        <!--Correo Electrónico-->
+        <div>
+            <label for="correo">Correo Electrónico</label>
+            <span aria-hidden="true" class="label-requerido">*</span>
+            <div>
+                <input type="email" id="correo" placeholder="ej. usuario@ucenfotec.ac.cr" aria-describedby="ayuda-correo" required aria-required="true">
+                <span id="ayuda-correo" class="texto-oculto">Ingrese su correo electrónico institucional, por ejemplo: usuario@ucenfotec.ac.cr</span>
+            </div>
+        </div>
+
+        <!--Contraseña-->
+        <div>
+            <label for="contrasena">Contraseña</label>
+            <span aria-hidden="true" class="label-requerido">*</span>
+            <div>
+                <input type="password" id="contrasena" required aria-required="true" placeholder="Contraseña">
+            </div>
+            <a href="">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <!--Casilla para mantener sesión iniciada (recordarme)-->
+        <div>
+            <input type="checkbox" id="recordarme">
+            <label for="recordarme">Recordarme</label>
+            
+        </div>
+
+        <!--Botón de Acceder-->
+        <button class="iniciar-sesion" id="inicio-sesion">Acceder</button>
+
+    </form>
+
+    <p>¿No tiene cuenta?</p>
+    <button>Registrarse</button>
+
+</main>
+    
+</body>
+</html>
