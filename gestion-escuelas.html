@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de escuelas</title>
+
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <main>
+        <header>
+            <h1>Gestión de escuelas</h1>
+            <p class="subtitulo">Complete todos los campos obligatorios para registrar una escuela.</p>
+        </header>
+
+        <form action="" novalidate>
+            <!-- Código de escuela -->
+            <div>
+                <label for="codigo-escuela">Código de escuela</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="codigo-escuela" placeholder="ej. ESC-001" aria-describedby="ayuda-codigo-escuela" required aria-required="true">
+                    <span id="ayuda-codigo-escuela" class="texto-oculto">Ingrese el código único de la escuela, por ejemplo: ESC-001</span>
+                </div>
+            </div>
+
+            <!-- Nombre de la escuela -->
+            <div>
+                <label for="nombre-escuela">Nombre de la escuela</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="nombre-escuela" placeholder="ej. Escuela de Ciencias de la Computación" aria-describedby="ayuda-nombre-escuela" required aria-required="true">
+                    <span id="ayuda-nombre-escuela" class="texto-oculto">Ingrese el nombre completo de la escuela, por ejemplo: Escuela de Ciencias de la Computación</span>
+                </div>
+            </div>
+
+            <!-- Facultad o área académica -->
+            <div>
+                <label for="facultad">Facultad o área académica</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="facultad" placeholder="ej. Ingeniería y Tecnología" aria-describedby="ayuda-facultad" required aria-required="true">
+                    <span id="ayuda-facultad" class="texto-oculto">Ingrese la facultad o área académica a la que pertenece la escuela.</span>
+                </div>
+            </div>
+
+            <!-- Nombre del director o encargado -->
+            <div>
+                <label for="encargado-escuela">Director o encargado</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="encargado-escuela" placeholder="ej. Ana Rodríguez Solano" aria-describedby="ayuda-encargado-escuela" required aria-required="true">
+                    <span id="ayuda-encargado-escuela" class="texto-oculto">Ingrese el nombre completo del director o encargado de la escuela.</span>
+                </div>
+            </div>
+
+            <!-- Correo de contacto -->
+            <div>
+                <label for="correo-escuela">Correo de contacto</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="email" id="correo-escuela" placeholder="ej. escuela@ucenfotec.ac.cr" aria-describedby="ayuda-correo-escuela" required aria-required="true">
+                    <span id="ayuda-correo-escuela" class="texto-oculto">Ingrese el correo institucional de contacto de la escuela.</span>
+                </div>
+            </div>
+
+            <!-- Estado -->
+            <div>
+                <label for="estado-escuela">Estado</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="estado-escuela" placeholder="ej. Activa" aria-describedby="ayuda-estado-escuela" required aria-required="true">
+                    <span id="ayuda-estado-escuela" class="texto-oculto">Indique si la escuela se encuentra activa o inactiva.</span>
+                </div>
+            </div>
+
+            <button id="crear-escuela">Registrar escuela</button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

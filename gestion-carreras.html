@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de carreras</title>
+
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <main>
+        <header>
+            <h1>Gestión de carreras</h1>
+            <p class="subtitulo">Complete todos los campos obligatorios para registrar una carrera.</p>
+        </header>
+
+        <form action="" novalidate>
+            <!-- Código de carrera -->
+            <div>
+                <label for="codigo-carrera">Código de carrera</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="codigo-carrera" placeholder="ej. CAR-014" aria-describedby="ayuda-codigo-carrera" required aria-required="true">
+                    <span id="ayuda-codigo-carrera" class="texto-oculto">Ingrese el código único de la carrera, por ejemplo: CAR-014</span>
+                </div>
+            </div>
+
+            <!-- Nombre de la carrera -->
+            <div>
+                <label for="nombre-carrera">Nombre de la carrera</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="nombre-carrera" placeholder="ej. Ingeniería en Sistemas de Información" aria-describedby="ayuda-nombre-carrera" required aria-required="true">
+                    <span id="ayuda-nombre-carrera" class="texto-oculto">Ingrese el nombre completo de la carrera, por ejemplo: Ingeniería en Sistemas de Información</span>
+                </div>
+            </div>
+
+            <!-- Escuela asociada -->
+            <div>
+                <label for="escuela-carrera">Escuela asociada</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="escuela-carrera" placeholder="ej. ESC-001" aria-describedby="ayuda-escuela-carrera" required aria-required="true">
+                    <span id="ayuda-escuela-carrera" class="texto-oculto">Ingrese el código de la escuela a la que pertenece esta carrera, por ejemplo: ESC-001</span>
+                </div>
+            </div>
+
+            <!-- Duración en años -->
+            <div>
+                <label for="duracion-carrera">Duración (años)</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="duracion-carrera" placeholder="ej. 4" aria-describedby="ayuda-duracion-carrera" required aria-required="true">
+                    <span id="ayuda-duracion-carrera" class="texto-oculto">Ingrese la duración estimada de la carrera en años, por ejemplo: 4</span>
+                </div>
+            </div>
+
+            <!-- Total de créditos -->
+            <div>
+                <label for="creditos-carrera">Total de créditos</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="creditos-carrera" placeholder="ej. 160" aria-describedby="ayuda-creditos-carrera" required aria-required="true">
+                    <span id="ayuda-creditos-carrera" class="texto-oculto">Ingrese la cantidad total de créditos que exige el plan de estudios, por ejemplo: 160</span>
+                </div>
+            </div>
+
+            <!-- Modalidad -->
+            <div>
+                <label for="modalidad-carrera">Modalidad</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="modalidad-carrera" placeholder="ej. Presencial" aria-describedby="ayuda-modalidad-carrera" required aria-required="true">
+                    <span id="ayuda-modalidad-carrera" class="texto-oculto">Ingrese la modalidad en la que se imparte la carrera, por ejemplo: Presencial</span>
+                </div>
+            </div>
+
+            <!-- Estado -->
+            <div>
+                <label for="estado-carrera">Estado</label>
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="estado-carrera" placeholder="ej. Activa" aria-describedby="ayuda-estado-carrera" required aria-required="true">
+                    <span id="ayuda-estado-carrera" class="texto-oculto">Indique si la carrera se encuentra activa o inactiva.</span>
+                </div>
+            </div>
+
+            <button id="crear-carrera">Registrar carrera</button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>
