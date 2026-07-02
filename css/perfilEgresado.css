@@ -1,0 +1,168 @@
+/* Estilo base */
+body {
+    background: #f5f5ff;
+    margin: 0;
+}
+
+/* Oculta las ayudas de accesibilidad */
+.texto-oculto {
+    display: none;
+}
+
+/* Barra de navegación */
+.navbar {
+    background-color: var(--primary-color-1);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.user-icon {
+    color: var(--white);
+    font-size: 16px;
+}
+
+/* Encabezado del perfil */
+.perfil-encabezado {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 800px;
+    border-radius: var(--borde-radio);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Icono de perfil */
+.avatar {
+    font-size: 80px;
+    color: var(--primary-color-1);
+}
+
+/* Nombre y rol */
+.perfil-encabezado-info h1 {
+    margin: 0;
+    color: var(--primary-color-1);
+}
+
+.perfil-rol {
+    color: var(--grisOscuro);
+    margin: 5px 0 15px 0;
+}
+
+/* Botón editar */
+.btn-editar {
+    background-color: var(--primary-color-1);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--borde-radio);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Secciones de información */
+.perfil-seccion {
+    background: white;
+    padding: 25px 30px;
+    margin: 15px auto;
+    max-width: 800px;
+    border-radius: var(--borde-radio);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.perfil-seccion h2 {
+    color: var(--primary-color-1);
+    border-bottom: 2px solid var(--primary-color-3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Filas de datos */
+.perfil-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.perfil-dato {
+    display: flex;
+    gap: 10px;
+}
+
+.dato-etiqueta {
+    font-weight: bold;
+    color: var(--grisOscuro);
+    min-width: 180px;
+}
+
+.dato-valor {
+    color: var(--negro);
+}
+
+/* Títulos obtenidos */
+.titulos-lista {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.titulo-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: var(--primary-color-3);
+    border-radius: var(--borde-radio);
+}
+
+.titulo-item i {
+    font-size: 24px;
+    color: var(--primary-color-1);
+}
+
+.titulo-item strong {
+    display: block;
+    color: var(--primary-color-1);
+}
+
+.titulo-item span {
+    font-size: 14px;
+    color: var(--grisOscuro);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    color: var(--grisOscuro);
+    font-size: 14px;
+    border-top: 2px solid var(--primary-color-3);
+}
