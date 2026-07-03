@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Oportunidades Laborales</title>
+
+    <link rel="stylesheet" href="../css/oportunidades_laborales.css">
+</head>
+<body>
+
+    <!-- Módulo de oportunidades laborales -->
+
+    <!-- Gestión de Oportunidades Laborales -->
+    <header>
+        <h1>Gestión de Oportunidades Laborales</h1>
+        <p class="subtitulo">
+            Complete la información para registrar una oportunidad laboral.
+        </p>
+    </header>
+
+    <form action="" novalidate>
+
+        <!-- Empresa -->
+        <div>
+            <label for="empresa">Empresa</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <input type="text" id="empresa" required>
+            </div>
+        </div>
+
+        <!-- Puesto -->
+        <div>
+            <label for="puesto">Puesto</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <input type="text" id="puesto" required>
+            </div>
+        </div>
+
+        <!-- Descripción -->
+        <div>
+            <label for="descripcionTrabajo">Descripción</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <textarea id="descripcionTrabajo" minlength="50" required></textarea>
+            </div>
+        </div>
+
+        <!-- Área profesional -->
+        <div>
+            <label for="area">Área profesional</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <select id="area" required>
+                    <option value="">Seleccione una opción</option>
+                    <option>Desarrollo de Software</option>
+                    <option>Diseño Web</option>
+                    <option>Bases de Datos</option>
+                    <option>Redes</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Modalidad -->
+        <div>
+            <label for="modalidadTrabajo">Modalidad</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <select id="modalidadTrabajo" required>
+                    <option value="">Seleccione una opción</option>
+                    <option>Presencial</option>
+                    <option>Híbrida</option>
+                    <option>Remota</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Ubicación -->
+        <div>
+            <label for="ubicacionTrabajo">Ubicación</label>
+
+            <div>
+                <input type="text" id="ubicacionTrabajo">
+            </div>
+        </div>
+
+        <!-- Fecha de publicación -->
+        <div>
+            <label for="fechaPublicacion">Fecha de publicación</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <input type="date" id="fechaPublicacion" required>
+            </div>
+        </div>
+
+        <!-- Fecha de vencimiento -->
+        <div>
+            <label for="fechaVencimiento">Fecha de vencimiento</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <input type="date" id="fechaVencimiento" required>
+            </div>
+        </div>
+
+        <!-- Correo o enlace de contacto -->
+        <div>
+            <label for="contacto">Correo o enlace de contacto</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <input type="email" id="contacto" required>
+            </div>
+        </div>
+
+        <!-- Estado -->
+        <div>
+            <label for="estadoTrabajo">Estado</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <select id="estadoTrabajo" required>
+                    <option value="">Seleccione una opción</option>
+                    <option>Activa</option>
+                    <option>Cerrada</option>
+                    <option>En revisión</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="guardar-formulario" type="submit">
+            Publicar oportunidad
+        </button>
+
+    </form>
+
+</body>
+</html>
