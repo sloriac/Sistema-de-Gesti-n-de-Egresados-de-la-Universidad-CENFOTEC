@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Egresado - Universidad CENFOTEC</title>
+
+    <!-- Íconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Estilos generales del equipo -->
+    <link rel="stylesheet" href="../css/estilos-generales.css">
+
+    <!-- Mi CSS de gestión -->
+    <link rel="stylesheet" href="../css/gestionEgresados.css">
+</head>
+
+<body>
+
+    <!-- Barra de navegación -->
+    <header role="banner">
+        <nav class="navbar" aria-label="Navegación principal">
+
+            <div class="logo" aria-label="Logotipo Universidad CENFOTEC">
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                <span>CENFOTEC</span>
+            </div>
+
+            <ul class="nav-links" role="list">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#" aria-current="page">Gestión de Egresados</a></li>
+            </ul>
+
+            <div class="user-icon" aria-label="Cerrar sesión">
+                <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                <span>Salir</span>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="main-content">
+
+        <!-- Encabezado de la página -->
+        <section class="pagina-encabezado" aria-labelledby="titulo-pagina">
+            <h1 id="titulo-pagina">
+                <i class="fas fa-user-plus" aria-hidden="true"></i>
+                Registro de Egresado
+            </h1>
+            <p>Complete todos los campos obligatorios para registrar un nuevo egresado.</p>
+        </section>
+
+        <!-- Formulario de registro -->
+        <section class="formulario-seccion" aria-labelledby="titulo-formulario">
+            <h2 id="titulo-formulario" class="texto-oculto">Formulario de registro de egresado</h2>
+
+            <form action="" class="formulario">
+
+                <!-- Identificación -->
+                <div class="campo-grupo">
+                    <label for="identificacion">
+                        Identificación
+                        <span class="label-requerido" aria-hidden="true">*</span>
+                    </label>
+                    <input type="text"
+                           id="identificacion"
+                           placeholder="ej. 1-1234-5678"
+                           aria-describedby="ayuda-identificacion"
+                           required
+                           aria-required="true">
+                    <span id="ayuda-identificacion" class="texto-oculto">
+                        Ingrese la cédula del egresado, por ejemplo: 1-1234-5678
+                    </span>
+                </div>
+
+                <!-- Nombre completo -->
+                <div class="campo-grupo">
+                    <label for="nombre">
+                        Nombre completo
+                        <span class="label-requerido" aria-hidden="true">*</span>
+                    </label>
+                    <input type="text"
+                           id="nombre"
+                           placeholder="ej. Juan Pérez Rodríguez"
+                           aria-describedby="ayuda-nombre"
+                           required
+                           aria-required="true">
+                    <span id="ayuda-nombre" class="texto-oculto">
+                        Ingrese el nombre completo del egresado
+                    </span>
+                </div>
+
+                <!-- Correo electronico -->
+                <div class="campo-grupo">
+                    <label for="correo">
+                        Correo electrónico
+                        <span class="label-requerido" aria-hidden="true">*</span>
+                    </label>
+                    <input type="email"
+                           id="correo"
+                           placeholder="ej. juan.perez@ucenfotec.ac.cr"
+                           aria-describedby="ayuda-correo"
+                           required
+                           aria-required="true">
+                    <span id="ayuda-correo" class="texto-oculto">
+                        Ingrese el correo institucional del egresado
+                    </span>
+                </div>
+
+                <!-- Telefono -->
+                <div class="campo-grupo">
+                    <label for="telefono">
+                        Teléfono
+                        <span class="label-requerido" aria-hidden="true">*</span>
+                    </label>
+                    <input type="tel"
+                           id="telefono"
+                           placeholder="ej. 8888-8888"
+                           aria-describedby="ayuda-telefono"
+                           required
+                           aria-required="true">
+                    <span id="ayuda-telefono" class="texto-oculto">
+                        Ingrese el número de teléfono del egresado, por ejemplo: 8888-8888
+                    </span>
+                </div>
+
+                <!-- Fecha de registro -->
+                <div class="campo-grupo">
+                    <label for="fecha-registro">
+                        Fecha de registro
+                        <span class="label-requerido" aria-hidden="true">*</span>
+                    </label>
+                    <input type="date"
+                           id="fecha-registro"
+                           aria-describedby="ayuda-fecha"
+                           required
+                           aria-required="true">
+                    <span id="ayuda-fecha" class="texto-oculto">
+                        Seleccione la fecha de registro del egresado
+                    </span>
+                </div>
+
+                <!-- Lugares de trabajo -->
+                <div class="campo-grupo">
+                    <label for="lugar-trabajo">
+                        Lugares de trabajo
+                    </label>
+                    <input type="text"
+                           id="lugar-trabajo"
+                           placeholder="ej. Tech Solutions S.A."
+                           aria-describedby="ayuda-trabajo">
+                    <span id="ayuda-trabajo" class="texto-oculto">
+                        Ingrese el lugar de trabajo actual del egresado
+                    </span>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="botones-grupo">
+                    <button type="submit"
+                            class="btn-primario"
+                            aria-label="Guardar registro del egresado">
+                        <i class="fas fa-save" aria-hidden="true"></i> Guardar
+                    </button>
+                    <button type="reset"
+                            class="btn-secundario"
+                            aria-label="Limpiar formulario de registro">
+                        <i class="fas fa-times" aria-hidden="true"></i> Cancelar
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2025 Universidad CENFOTEC. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
