@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Actividades </title>
+
+    <link rel="stylesheet" href="../css/gestion_actividades_laborales.css">
+</head>
+<body>
+
+    <!-- Trabajo -->
+
+
+    <!-- Gestión de Actividades -->
+    <header>
+        <h1>Gestión de Actividades</h1>
+        <p class="subtitulo">
+            Complete la información para registrar una actividad institucional.
+        </p>
+    </header>
+
+    <form action="" novalidate>
+
+        <!-- Título -->
+        <div>
+            <label for="titulo">Título</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <input type="text" id="titulo" required>
+            </div>
+        </div>
+
+        <!-- Descripción -->
+        <div>
+            <label for="descripcionActividad">Descripción</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <textarea id="descripcionActividad" required></textarea>
+            </div>
+        </div>
+
+        <!-- Fecha y hora -->
+        <div>
+            <label for="fechaHora">Fecha y hora</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <input type="datetime-local" id="fechaHora" required>
+            </div>
+        </div>
+
+        <!-- Duración -->
+        <div>
+            <label for="duracion">Duración (horas)</label>
+
+            <div>
+                <input type="number" id="duracion">
+            </div>
+        </div>
+
+        <!-- Modalidad -->
+        <div>
+            <label for="modalidadActividad">Modalidad</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <select id="modalidadActividad" required>
+                    <option value="">Seleccione una opción</option>
+                    <option>Presencial</option>
+                    <option>Virtual</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Ubicación o enlace -->
+        <div>
+            <label for="ubicacion">Ubicación o enlace</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <input type="text" id="ubicacion" required>
+            </div>
+        </div>
+
+        <!-- Público objetivo -->
+        <div>
+            <label for="publico">Público objetivo</label>
+
+            <div>
+                <input type="text" id="publico">
+            </div>
+        </div>
+
+        <!-- Estado -->
+        <div>
+            <label for="estadoActividad">Estado</label>
+            <span class="label-requerido">*</span>
+
+            <div>
+                <select id="estadoActividad" required>
+                    <option value="">Seleccione una opción</option>
+                    <option>Programada</option>
+                    <option>Cancelada</option>
+                    <option>Finalizada</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="guardar-formulario" type="submit">
+            Guardar actividad
+        </button>
+
+    </form>
+
+</body>
+</html>
+
