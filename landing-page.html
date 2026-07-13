@@ -68,13 +68,92 @@
             
         </section>
 
+        <section class="tarjeta">
+            <!--Formulario de contacto-->
+
+            <form action="">
+                <h2>Formulario de Contacto</h2>
+
+                <!--Nombre-->
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <span aria-hidden="true" class="label-requerido">*</span>
+
+                    <div>
+                        <input type="text" id="nombre" aria-describedby="ayuda-nombre" required aria-required="true" placeholder="ej. Ana Calvo">
+                        <span id="ayuda-nombre" class="texto-oculto">Ingrese su nombre, por ejemplo; Ana Calvo</span>
+                    </div>
+                </div>
+
+                <!--Correo-->
+                <div>
+                    <label for="correo">Correo electrónico</label>
+                    <span aria-hidden="true" class="label-requerido">*</span>
+
+                    <div>
+                        <input type="email" id="correo" aria-describedby="ayuda-correo" required aria-required="true" placeholder="ej. abcde@mail.com">
+                        <span id="ayuda-correo" class="texto-oculto">Ingrese el correo electrónico por cual desea que lo contacten, por ejemplo, abcde@mail.com</span>
+                    </div>
+                </div>
+
+                <!--Número-->
+                <div>
+                    <label for="numero">Número de teléfono</label>
+                    <span aria-hidden="true" class="label-requerido">*</span>
+
+                    <div>
+                        <input type="number" id="numero" aria-describedby="ayuda-numero" required aria-required="true" placeholder="ej, 8888-8888">
+                        <span id="ayuda-numero" class="texto-oculto">Ingrese su número de teléfono, por ejemplo 8888-8888</span>
+                    </div>
+                </div>
+
+                <!--Carreras cursadas (grupo repetible)-->
+                <div>
+                    <label>Carreras cursadas</label>
+                    <span class="label-requerido">*</span>
+
+                    <div id="carreras-container">
+                        <!--JavaScript-->
+                    </div>
+
+                    <button type="button" class="boton" id="agregar-carrera-boton">+ Agregar carrera cursada</button>
+
+                </div>
+
+                <button class="boton" type="button" id="enviar-informacion-boton">Enviar solicitud</button>
+
+            </form>
+        </section>
     </main>
+
+    <!--Agregar carreras cursadas con template-->
+                <template id="template-carrera">
+
+                    <div class="bloque-carrera" data-index="0">
+                        <button type="button" class="eliminar-carrera" aria-label="Eliminar esta carrera"><i class="fa-solid fa-ban" aria-hidden="true"></i></button>
+                        <!--Carrera-->
+                        <div>
+                            <label for="carrera-0">Carrera</label>
+                            <div>
+                                <input type="text" id="carrera-0" placeholder="Carrera cursada" aria-describedby="ayuda-carrera-0">
+                                <span id="ayuda-carrera-0" class="texto-oculto">Carrera que cursó</span>
+                            </div>
+                        </div>
+
+                        <!--Año de graduación-->
+                        <div>
+                            <label for="anno-graduacion">Año de graduación</label>
+                            <div>
+                                <input type="date" id="anno-graduacion-0" aria-describedby="ayuda-anno-graduacion-0">
+                                <span id="ayuda-anno-graduacion-0" class="texto-oculto">Año de graduación de la carrera cursada.</span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
 
     <footer>
         <p>&copy; 2026 Universidad CENFOTEC. Todos los derechos reservados.</p>
     </footer>
     
 </body>
-
-
 </html>

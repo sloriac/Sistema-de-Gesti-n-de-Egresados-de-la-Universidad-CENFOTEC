@@ -48,3 +48,7 @@ body {
     background: #f5f5ff;
     margin: 0;
 }
+
+.texto-oculto {
+    display: none;
+}
