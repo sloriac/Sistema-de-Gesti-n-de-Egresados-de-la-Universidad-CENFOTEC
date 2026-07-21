@@ -4,41 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Egresados | UCENFOTEC</title>
-    <link rel="stylesheet" href="css\estilos-generales.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
     <link rel="stylesheet" href="../css/landing-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+
     <header>
-        <nav class="navbar" aria-label="Navegación Principal">
+
+        <section>
             <div>
-                <figure> <!--Figura para colocar imagen con el logo de la universidad-->
-                    <img src="assets\LogoCenfotec.png" width="100" height="50" alt="Logo Universidad Cenfotec">
-                </figure>
+                <figure> <!--Figura para colocar imagen con el logo de la universidad-->                            <img src="assets/LogoCenfotec.png" width="100" height="50" alt="Logo Universidad Cenfotec">
+                    </figure>
             </div>
-
-            <h1>Bienvenido al Portal de Egresados</h1>
-        <p>Conectando a nuestros graduados con nuevas oportunidades laborales y actividades</p>
-
-            <!--Enlaces a distinas opciones/páginas del Landing Page-->
-            <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Nosotros</a></li>
-                <li><a href="">Carreras</a></li>
-                <li><a href="">Actividades</a></li>
-                <li><a href="">Contacto</a></li>
-            </ul>
-             
-        </nav>
+                <h1>Bienvenido al Portal de Egresados</h1>
+                <p>Conectando a nuestros graduados con nuevas oportunidades laborales y actividades</p>    
+        </section>
+            
+        <section>
+            <nav class="navbar" aria-label="Navegación Principal">
+                <!--Enlaces a distinas opciones/páginas del Landing Page-->
+                <ul>
+                    <li><a href="#main">Inicio</a></li>
+                    <li><a href="iniciar-sesion.html">Iniciar Sesión</a></li>
+                    <li><a href="#actividades">Actividades</a></li>     
+                    <li><a href="#formulario-contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </section>
 
     </header>
 
-    <main>
-
-        <button class="boton">Iniciar Sesión</button> <!--Botones a la pantalla de inicio de sesión-->
-        <button class="boton">Registrarse</button>
-
+    <main id="main">
 
         <section class="tarjeta"> <!--Section  para tener más organización-->
             <h2>Beneficios</h2>
@@ -51,7 +49,7 @@
             </ul>
         </section>
 
-        <section class="tarjeta">
+        <section id="actividades" class="tarjeta">
             <h2>Próximas Actividades</h2>
 
             <ul>
@@ -61,18 +59,20 @@
             </ul>
         </section>
 
-        <section class="tarjeta">
+        <article class="tarjeta">
             <h2>Testimonios</h2>
 
             <p>"Gracias al portal de egresados encontré mi actual trabajo en una empresa transnacional"</p>
             
-        </section>
+        </article>
 
-        <section class="tarjeta">
+        <section id="formulario-contacto" class="tarjeta">
             <!--Formulario de contacto-->
 
             <form action="">
                 <h2>Formulario de Contacto</h2>
+
+                <p id="mensaje-exito" class="texto-oculto">Solicitud enviada correctamente. Le contactaremos pronto.</p>
 
                 <!--Nombre-->
                 <div>
@@ -82,6 +82,8 @@
                     <div>
                         <input type="text" id="nombre" aria-describedby="ayuda-nombre" required aria-required="true" placeholder="ej. Ana Calvo">
                         <span id="ayuda-nombre" class="texto-oculto">Ingrese su nombre, por ejemplo; Ana Calvo</span>
+                        <span id="error-nombre" class="mensaje-error texto-oculto">Ingrese un nombre válido (mínimo 2 caracteres).</span>
+
                     </div>
                 </div>
 
@@ -89,10 +91,13 @@
                 <div>
                     <label for="correo">Correo electrónico</label>
                     <span aria-hidden="true" class="label-requerido">*</span>
+                    
 
                     <div>
                         <input type="email" id="correo" aria-describedby="ayuda-correo" required aria-required="true" placeholder="ej. abcde@mail.com">
                         <span id="ayuda-correo" class="texto-oculto">Ingrese el correo electrónico por cual desea que lo contacten, por ejemplo, abcde@mail.com</span>
+                        <span id="error-correo" class="mensaje-error texto-oculto">Ingrese un correo válido (ejemplo@gmail.com).</span>
+
                     </div>
                 </div>
 
@@ -102,15 +107,16 @@
                     <span aria-hidden="true" class="label-requerido">*</span>
 
                     <div>
-                        <input type="number" id="numero" aria-describedby="ayuda-numero" required aria-required="true" placeholder="ej, 8888-8888">
+                        <input type="tel" id="numero" aria-describedby="ayuda-numero" required aria-required="true" placeholder="ej, 8888-8888">
                         <span id="ayuda-numero" class="texto-oculto">Ingrese su número de teléfono, por ejemplo 8888-8888</span>
+                        <span id="error-numero" class="mensaje-error texto-oculto">Formato de número de teléfono inválido, utilice el formato 8888-8888.</span>
+
                     </div>
                 </div>
 
                 <!--Carreras cursadas (grupo repetible)-->
                 <div>
                     <label>Carreras cursadas</label>
-                    <span class="label-requerido">*</span>
 
                     <div id="carreras-container">
                         <!--JavaScript-->
@@ -137,15 +143,18 @@
                             <div>
                                 <input type="text" id="carrera-0" placeholder="Carrera cursada" aria-describedby="ayuda-carrera-0">
                                 <span id="ayuda-carrera-0" class="texto-oculto">Carrera que cursó</span>
+                                <span class="mensaje-error-carrera texto-oculto">Complete el campo de carrera cursada.</span>
+
                             </div>
                         </div>
 
                         <!--Año de graduación-->
                         <div>
-                            <label for="anno-graduacion">Año de graduación</label>
+                            <label for="anno-graduacion-0">Año de graduación</label>
                             <div>
                                 <input type="date" id="anno-graduacion-0" aria-describedby="ayuda-anno-graduacion-0">
                                 <span id="ayuda-anno-graduacion-0" class="texto-oculto">Año de graduación de la carrera cursada.</span>
+                                <span class="mensaje-error-anno texto-oculto">Complete el campo de año de graduación.</span>
                             </div>
                         </div>
                     </div>
@@ -154,6 +163,10 @@
     <footer>
         <p>&copy; 2026 Universidad CENFOTEC. Todos los derechos reservados.</p>
     </footer>
+
+    <!--Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/landing-page.js"></script>
     
 </body>
 </html>
