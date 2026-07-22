@@ -158,7 +158,8 @@
 
                 <!-- Botones de acción -->
                 <div class="botones-grupo">
-                    <button type="submit"
+                    <button type="button"
+                            id="guardar-egresado"
                             class="btn-primario"
                             aria-label="Guardar registro del egresado">
                         <i class="fas fa-save" aria-hidden="true"></i> Guardar
@@ -173,13 +174,24 @@
             </form>
         </section>
 
+        <!-- Lista de egresados registrados -->
+        <section id="egresados-registrados" aria-labelledby="titulo-lista">
+        <h2 id="titulo-lista">Egresados registrados</h2>
+        <!-- Los <article> se agregan aquí dinámicamente con JavaScript -->
+        </section>
+
     </main>
+
+
 
     <!-- Pie de página -->
     <footer>
         <p>© 2025 Universidad CENFOTEC. Todos los derechos reservados.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/gestionEgresados.js"></script>
+    
 </body>
 
 </html>
