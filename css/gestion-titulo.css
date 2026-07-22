@@ -1,0 +1,57 @@
+/* ESTILO PARA LOS BOTONES QUE SE UTILICEN */
+.boton {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #0A4FA3;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+/* ESTILO BASE PARA EL BODY */
+body {
+    background: #f5f5ff;
+    margin: 0;
+}
+
+/* ESTILO PARA EL CONTENEDOR/TARJETA */
+.contenedor-login {
+    color: black;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,.2);
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+/* OCULTA LAS AYUDAS */
+.texto-oculto {
+    display: none;
+}
+
+/* MUESTRA LOS CAMPOS REQUERIDOS */
+.label-requerido {
+    color: red;
+}
+
+/* EXCLUYE EL CHECBOX DE LOS INPUTS */
+input:not([type="checkbox"]) {
+    width: 100%;
+    max-width: 350px;
+}
+
+/* CENTRA EL CHECKBOX POR APARTE */
+input[type="checkbox"] {
+    width: auto;
+}
+
+/* CENTRA EL LOGO */
+figure {
+    text-align: center;
+}
+
+/* QUITA EL SUBRAYADO DEL ENLACE */
+.olvide-contrasena {
+    text-decoration: none;
+}
