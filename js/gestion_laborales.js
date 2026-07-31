@@ -93,6 +93,14 @@ function resaltarCamposVacios() {
         limpiarError(modalidad);
     }
 
+    // Ubicación
+    if (ubicacion.value.trim() === "") {
+        mostrarError(ubicacion, "Este campo es obligatorio.");
+        error = true;
+    } else {
+        limpiarError(ubicacion);
+    }
+
     // Fecha Publicación
     if (fechaPublicacion.value === "") {
         mostrarError(fechaPublicacion, "Este campo es obligatorio.");
@@ -101,7 +109,7 @@ function resaltarCamposVacios() {
         limpiarError(fechaPublicacion);
     }
 
-    // Fecha Vencimiento (Validación corregida)
+    // Fecha Vencimiento 
     if (fechaVencimiento.value === "") {
         mostrarError(fechaVencimiento, "Este campo es obligatorio.");
         error = true;
