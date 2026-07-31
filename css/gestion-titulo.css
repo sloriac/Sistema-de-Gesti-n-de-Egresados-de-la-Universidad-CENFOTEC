@@ -68,6 +68,14 @@ body {
     display: none;
 }
 
+input.input-error {
+    border-color: red;
+}
+
+.mensaje-error {
+    color: red;
+}
+
 /* MUESTRA LOS CAMPOS REQUERIDOS */
 .label-requerido {
     color: red;
