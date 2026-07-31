@@ -1,6 +1,6 @@
 console.log("El JS sí se está cargando");
 
-// Seleccionar elementos del DOM.
+// Seleccionar los elementos del DOM
 const empresa = document.getElementById("empresa");
 const puesto = document.getElementById("puesto");
 const descripcion = document.getElementById("descripcionTrabajo");
@@ -15,57 +15,132 @@ const estado = document.getElementById("estadoTrabajo");
 const formulario = document.getElementById("formOportunidad");
 const btnGuardar = document.getElementById("guardarOportunidad");
 
-// Se utiliza querySelector como lo solicita la práctica
-const primerInput = document.querySelector("input");
-
 let indiceEditar = -1;
 
-// Validación con Regex
+// Funciones de validación
 function validarCorreo(correo) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+}
+
+function mostrarError(campo, mensaje) {
+    campo.classList.add("input-error");
+
+    let mensajeExistente = campo.nextElementSibling;
+
+    if (!mensajeExistente || !mensajeExistente.classList.contains("mensaje-error")) {
+        let errorP = document.createElement("p");
+        errorP.className = "mensaje-error";
+        errorP.textContent = mensaje;
+        campo.parentNode.insertBefore(errorP, campo.nextSibling);
+    } else {
+        mensajeExistente.textContent = mensaje;
+    }
+}
+
+function limpiarError(campo) {
+    campo.classList.remove("input-error");
+
+    let mensajeExistente = campo.nextElementSibling;
+
+    if (mensajeExistente && mensajeExistente.classList.contains("mensaje-error")) {
+        mensajeExistente.remove();
+    }
+}
+
+function resaltarCamposVacios() {
+    let error = false; // Asumir que no hay errores
+
+    // Empresa
+    if (empresa.value.trim() === "") {
+        mostrarError(empresa, "Este campo es obligatorio.");
+        error = true;
+    } else {
+        limpiarError(empresa);
+    }
+
+    // Puesto
+    if (puesto.value.trim() === "") {
+        mostrarError(puesto, "Este campo es obligatorio.");
+        error = true;
+    } else {
+        limpiarError(puesto);
+    }
+
+    // Descripción
+    if (descripcion.value.trim() === "") {
+        mostrarError(descripcion, "Este campo es obligatorio.");
+        error = true;
+    } else if (descripcion.value.trim().length < 20) {
+        mostrarError(descripcion, "Debe ingresar al menos 20 caracteres.");
+        error = true;
+    } else {
+        limpiarError(descripcion);
+    }
+
+    // Área
+    if (area.value === "") {
+        mostrarError(area, "Este campo es obligatorio.");
+        error = true;
+    } else {
+        limpiarError(area);
+    }
+
+    // Modalidad
+    if (modalidad.value === "") {
+        mostrarError(modalidad, "Este campo es obligatorio.");
+        error = true;
+    } else {
+        limpiarError(modalidad);
+    }
+
+    // Fecha Publicación
+    if (fechaPublicacion.value === "") {
+        mostrarError(fechaPublicacion, "Este campo es obligatorio.");
+        error = true;
+    } else {
+        limpiarError(fechaPublicacion);
+    }
+
+    // Fecha Vencimiento (Validación corregida)
+    if (fechaVencimiento.value === "") {
+        mostrarError(fechaVencimiento, "Este campo es obligatorio.");
+        error = true;
+    } else if (fechaPublicacion.value !== "" && fechaVencimiento.value < fechaPublicacion.value) {
+        mostrarError(fechaVencimiento, "La fecha no puede ser anterior a la de publicación.");
+        error = true;
+    } else {
+        limpiarError(fechaVencimiento);
+    }
+
+    // Correo / Contacto
+    if (contacto.value.trim() === "") {
+        mostrarError(contacto, "Este campo es obligatorio.");
+        error = true;
+    } else if (!validarCorreo(contacto.value.trim())) {
+        mostrarError(contacto, "Debe ingresar un correo válido.");
+        error = true;
+    } else {
+        limpiarError(contacto);
+    }
+
+    // Estado
+    if (estado.value === "") {
+        mostrarError(estado, "Este campo es obligatorio.");
+        error = true;
+    } else {
+        limpiarError(estado);
+    }
+
+    return error;
 }
 
 function guardarOportunidad(e) {
 
     e.preventDefault();
 
-    let error = false;
+    const hayError = resaltarCamposVacios();
 
-    const campos = formulario.querySelectorAll("input[required], select[required], textarea[required]");
-
-    campos.forEach(function(campo) {
-
-        if (campo.value.trim() === "") {
-            campo.classList.add("input-error");
-            error = true;
-        } else {
-            campo.classList.remove("input-error");
-        }
-
-    });
-
-    if (descripcion.value.trim().length < 20) {
-        descripcion.classList.add("input-error");
-        error = true;
-    }
-
-  if (!validarCorreo(contacto.value.trim())) {
-    contacto.classList.add("input-error");
-    error = true;
-    } else {
-        contacto.classList.remove("input-error");
-    }
-
-    if (fechaVencimiento.value < fechaPublicacion.value) {
-        alert("La fecha de vencimiento no puede ser anterior a la fecha de publicación.");
-        fechaVencimiento.classList.add("input-error");
-        error = true;
-    } else {
-        fechaVencimiento.classList.remove("input-error");
-    }
-
-    if (error) {
-        alert("Debe completar correctamente los campos obligatorios.");
+    if (hayError) {
         return;
     }
 
@@ -78,7 +153,6 @@ function guardarOportunidad(e) {
     let existe = false;
 
     for (let i = 0; i < oportunidades.length; i++) {
-
         if (
             oportunidades[i].empresa === empresa.value &&
             oportunidades[i].puesto === puesto.value &&
@@ -86,7 +160,6 @@ function guardarOportunidad(e) {
         ) {
             existe = true;
         }
-
     }
 
     if (existe) {
@@ -95,7 +168,6 @@ function guardarOportunidad(e) {
     }
 
     const nuevaOportunidad = {
-
         empresa: empresa.value,
         puesto: puesto.value,
         descripcion: descripcion.value,
@@ -106,19 +178,14 @@ function guardarOportunidad(e) {
         fechaVencimiento: fechaVencimiento.value,
         contacto: contacto.value,
         estado: estado.value
-
     };
 
     if (indiceEditar === -1) {
-
         oportunidades.push(nuevaOportunidad);
-
     } else {
-
         oportunidades[indiceEditar] = nuevaOportunidad;
         indiceEditar = -1;
         btnGuardar.textContent = "Publicar oportunidad";
-
     }
 
     localStorage.setItem("oportunidades", JSON.stringify(oportunidades));
@@ -130,6 +197,7 @@ function guardarOportunidad(e) {
     alert("Oportunidad registrada correctamente.");
 
 }
+
 function mostrarOportunidades() {
 
     let oportunidades = JSON.parse(localStorage.getItem("oportunidades"));
@@ -220,6 +288,7 @@ function eliminarOportunidad(indice) {
     mostrarOportunidades();
 
 }
+
 btnGuardar.addEventListener("click", guardarOportunidad);
 
 mostrarOportunidades();
