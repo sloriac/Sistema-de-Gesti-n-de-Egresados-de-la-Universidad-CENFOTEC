@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,6 @@
     <link rel="stylesheet" href="./css/oportunidades_laborales.css">
 </head>
 <body>
-    <!-- Gestión -->
 
     <!-- Gestión de Oportunidades Laborales -->
 
@@ -30,7 +30,7 @@
 
             <article>
 
-                <form id="formOportunidad" action="" novalidate>
+                <form id="formOportunidad" novalidate>
 
                     <!-- Empresa -->
                     <div>
@@ -58,7 +58,10 @@
                         <span class="label-requerido">*</span>
 
                         <div>
-                            <textarea id="descripcionTrabajo" minlength="20" required></textarea>
+                            <textarea
+                                id="descripcionTrabajo"
+                                minlength="20"
+                                required></textarea>
                         </div>
                     </div>
 
@@ -96,39 +99,55 @@
                     <!-- Ubicación -->
                     <div>
                         <label for="ubicacionTrabajo">Ubicación</label>
-
-                        <div>
-                            <input type="text" id="ubicacionTrabajo">
-                        </div>
-                    </div>
-
-                    <!-- Fecha de publicación -->
-                    <div>
-                        <label for="fechaPublicacion">Fecha de publicación</label>
                         <span class="label-requerido">*</span>
 
                         <div>
-                            <input type="date" id="fechaPublicacion" required>
+                            <input type="text" id="ubicacionTrabajo" required>
                         </div>
                     </div>
 
-                    <!-- Fecha de vencimiento -->
+                    <!-- Fecha publicación -->
                     <div>
-                        <label for="fechaVencimiento">Fecha de vencimiento</label>
+                        <label for="fechaPublicacion">
+                            Fecha de publicación
+                        </label>
                         <span class="label-requerido">*</span>
 
                         <div>
-                            <input type="date" id="fechaVencimiento" required>
+                            <input
+                                type="date"
+                                id="fechaPublicacion"
+                                required>
                         </div>
                     </div>
 
-                    <!-- Correo -->
+                    <!-- Fecha vencimiento -->
                     <div>
-                        <label for="contacto">Correo o enlace de contacto</label>
+                        <label for="fechaVencimiento">
+                            Fecha de vencimiento
+                        </label>
                         <span class="label-requerido">*</span>
 
                         <div>
-                            <input type="email" id="contacto" required>
+                            <input
+                                type="date"
+                                id="fechaVencimiento"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Contacto -->
+                    <div>
+                        <label for="contacto">
+                            Correo o enlace de contacto
+                        </label>
+                        <span class="label-requerido">*</span>
+
+                        <div>
+                            <input
+                                type="email"
+                                id="contacto"
+                                required>
                         </div>
                     </div>
 
@@ -148,10 +167,12 @@
                     </div>
 
                     <button
+                        type="submit"
                         id="guardarOportunidad"
-                        class="guardar-formulario"
-                        type="submit">
+                        class="guardar-formulario">
+
                         Publicar oportunidad
+
                     </button>
 
                 </form>
@@ -166,7 +187,8 @@
         <p>Universidad CENFOTEC Diseño y Programación Web</p>
     </footer>
 
-   <script src="../js/gestion_laborales.js"></script>
+    <script src="./js/gestion_laborales.js"></script>
 
 </body>
+
 </html>
