@@ -1,3 +1,6 @@
+
+
+Gestionegresados · HTML
 <!DOCTYPE html>
 <html lang="es">
 
@@ -142,17 +145,44 @@
                     </span>
                 </div>
 
-                <!-- Lugares de trabajo -->
+                <!-- Lugar de trabajo: empresa -->
                 <div class="campo-grupo">
                     <label for="lugar-trabajo">
-                        Lugares de trabajo
+                        Empresa (lugar de trabajo)
                     </label>
                     <input type="text"
                            id="lugar-trabajo"
                            placeholder="ej. Tech Solutions S.A."
                            aria-describedby="ayuda-trabajo">
                     <span id="ayuda-trabajo" class="texto-oculto">
-                        Ingrese el lugar de trabajo actual del egresado
+                        Ingrese el lugar de trabajo del egresado. Si completa este campo, también debe completar Puesto y Fecha de inicio.
+                    </span>
+                </div>
+
+                <!-- Lugar de trabajo: puesto -->
+                <div class="campo-grupo">
+                    <label for="puesto-trabajo">
+                        Puesto
+                    </label>
+                    <input type="text"
+                           id="puesto-trabajo"
+                           placeholder="ej. Desarrolladora"
+                           aria-describedby="ayuda-puesto-trabajo">
+                    <span id="ayuda-puesto-trabajo" class="texto-oculto">
+                        Ingrese el puesto que ocupa u ocupó en ese lugar de trabajo. Obligatorio solo si completó el campo Empresa.
+                    </span>
+                </div>
+
+                <!-- Lugar de trabajo: fecha de inicio -->
+                <div class="campo-grupo">
+                    <label for="fecha-inicio-trabajo">
+                        Fecha de inicio en el puesto
+                    </label>
+                    <input type="date"
+                           id="fecha-inicio-trabajo"
+                           aria-describedby="ayuda-fecha-inicio-trabajo">
+                    <span id="ayuda-fecha-inicio-trabajo" class="texto-oculto">
+                        Ingrese la fecha en la que inició en ese puesto. Obligatorio solo si completó el campo Empresa.
                     </span>
                 </div>
 
