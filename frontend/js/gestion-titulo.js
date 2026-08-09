@@ -198,7 +198,6 @@ function limpiarFormulario() {
 }
 
 //JSON
-
 async function guardarRegistro() {
 
     //Objeto con info del formulario
@@ -227,6 +226,7 @@ async function guardarRegistro() {
             text: "El título fue registrado exitosamente",
             icon: "success"
         });
+        await obtenerTitulos();
         limpiarFormulario();
 
     } catch (error) {
@@ -237,6 +237,43 @@ async function guardarRegistro() {
         });
     }
 }
+async function obtenerTitulos() {
+    try {
+        const respuesta = await fetch(API);
+
+        if (!respuesta.ok) throw new Error('No se pudieron consultar los títulos');
+
+        const titulos = await respuesta.json();
+
+        mostrarTabla(titulos);
+    } catch (error) {
+        Swal.fire({
+            title: "Error",
+            text: error.message,
+            icon: "error"
+        });
+    }
+
+}
+
+function mostrarTabla(titulos) {
+    const tbody = document.querySelector("table tbody");
+    tbody.innerHTML = "";
+    titulos.forEach(titulo => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+        <td>${titulo.tipoPrograma}</td>
+        <td>${titulo.carrera?.nombre ?? "-"}</td>
+        <td>${titulo.escuela?.nombre ?? "-"}</td>
+        <td>${titulo.annoGraduacion}</td>
+        <td>${titulo.egresado?.nombreCompleto ??  "-"}</td>
+        <td>${titulo.estado}</td>
+        `;
+        tbody.appendChild(fila);
+    });
+}
 //botonRegistrar.addEventListener("click", validarCamposVacios);
 //Para que tambien funcione con enter
 document.querySelector("form").addEventListener("submit", validarCamposVacios);
+document.addEventListener("DOMContentLoaded", obtenerTitulos);
+document.getElementById("mostrar-titulos").addEventListener("click", obtenerTitulos);
