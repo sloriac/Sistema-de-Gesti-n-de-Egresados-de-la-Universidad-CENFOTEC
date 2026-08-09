@@ -47,15 +47,39 @@
                     </div>
                 </div>
 
-                <!-- Carrera asociada -->
+                <!-- Egresado -->
+                <div>
+                    <label for="egresado-titulo">Egresado</label>
+                    <span aria-hidden="true">*</span>
+
+                    <div>
+                        <input type="text" id="egresado-titulo" placeholder="ID del egresado" aria-describedby="ayuda-egresado-titulo" required aria-required="true">
+                        <span id="ayuda-egresado-titulo" class="texto-oculto">Ingrese el ID del egresado al que pertenece este título.</span>
+                        <span id="error-egresado" class="mensaje-error texto-oculto">Ingrese un ID de egresado válido.</span>
+                    </div>
+                </div>
+
+                <!-- Escuela -->
+                <div>
+                    <label for="escuela-titulo">Escuela</label>
+                    <span aria-hidden="true">*</span>
+
+                    <div>
+                        <input type="text" id="escuela-titulo" placeholder="ID de la escuela" aria-describedby="ayuda-escuela-titulo" required aria-required="true">
+                        <span id="ayuda-escuela-titulo" class="texto-oculto">Ingrese el ID de la escuela a la que pertenece este título.</span>
+                        <span id="error-escuela" class="mensaje-error texto-oculto">Ingrese un ID de escuela válido.</span>
+                    </div>
+                </div>
+
+                <!-- Carrera -->
                 <div>
                     <label for="carrera-titulo">Carrera asociada</label>
                     <span aria-hidden="true">*</span>
 
                     <div>
-                        <input type="text" id="carrera-titulo" placeholder="ej. CAR-015" aria-describedby="ayuda-carrera-titulo" required aria-required="true">
-                        <span id="ayuda-carrera-titulo" class="texto-oculto">Ingrese el código de la carrera a la que pertenece este título, por ejemplo: CAR-015</span>
-                        <span id="error-carrera" class="mensaje-error texto-oculto">Ingrese una carrera válida (mínimo 3 letras y 3 números).</span>
+                        <input type="text" id="carrera-titulo" placeholder="ID de la carrera" aria-describedby="ayuda-carrera-titulo" required aria-required="true">
+                        <span id="ayuda-carrera-titulo" class="texto-oculto">Ingrese el ID de la carrera a la que pertenece este título.</span>
+                        <span id="error-carrera" class="mensaje-error texto-oculto">Ingrese un ID de carrera válido.</span>
                     </div>
                 </div>
 
@@ -65,9 +89,15 @@
                     <span aria-hidden="true">*</span>
 
                     <div>
-                        <input type="text" id="grado-titulo" placeholder="ej. Licenciatura" aria-describedby="ayuda-nivel-titulo" required aria-required="true">
-                        <span id="ayuda-nivel-titulo" class="texto-oculto">Ingrese el nivel o grado académico que otorga este título, por ejemplo: Diplomado, Bachillerato, Licenciatura, Maestría o Doctorado.</span>
-                        <span id="error-grado" class="mensaje-error texto-oculto">Ingrese un grado válido (mínimo 8 caracteres).</span>
+
+                        <select name="tipoPrograma-titulo" id="tipoPrograma-titulo">
+                            <option value="Técnico">Técnico</option>
+                            <option value="Bachillerato">Bachillerato</option>
+                            <option value="Maestría">Maestría</option>
+                        </select>
+                            
+                        <span id="ayuda-nivel-titulo" class="texto-oculto">Seleccione el nivel o grado académico que otorga este título, por ejemplo: Técnico, Bachillerato, Maestría.</span>
+                        <span id="error-tipoPrograma" class="mensaje-error texto-oculto">Ingrese un grado válido (mínimo 8 caracteres).</span>
                     </div>
                 </div>
 
@@ -108,9 +138,32 @@
                 </div>
 
                 <button type="submit" id="registrar-titulo" class="boton">Registrar título</button>
+                <button type="button" id="mostrar-titulos" class="boton">Mostrar títulos</button>
 
             </form>
 
+        </section>
+
+        <section class="tarjeta">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Programa</th>
+                        <th>Carrera</th>
+                        <th>Escuela</th>
+                        <th>Año de Graduación</th>
+                        <th>Egresado</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+
+                    </tr>
+                </tbody>
+
+            </table>
         </section>
 
     </main>

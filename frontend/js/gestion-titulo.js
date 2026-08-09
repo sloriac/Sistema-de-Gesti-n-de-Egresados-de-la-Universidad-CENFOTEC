@@ -1,21 +1,27 @@
 //Variables para los inputs principales
 const inputCodigo = document.getElementById("codigo-titulo");
 const inputNombre = document.getElementById("nombre-titulo");
+const inputEgresado = document.getElementById("egresado-titulo");
+const inputEscuela = document.getElementById("escuela-titulo");
 const inputCarrera = document.getElementById("carrera-titulo");
-const inputGrado = document.getElementById("grado-titulo");
+const inputGrado = document.getElementById("tipoPrograma-titulo");
 const inputCreditos = document.getElementById("creditos-titulo");
 const inputFecha = document.getElementById("fecha-titulo");
 const inputEstado = document.getElementById("estado-titulo");
+
+const API = "http://localhost:3000/titulos";
 
 const botonRegistrar = document.getElementById("registrar-titulo");
 
 const errorCodigo = document.getElementById("error-codigo");
 const errorNombre = document.getElementById("error-nombre");
 const errorCarrera = document.getElementById("error-carrera");
-const errorGrado = document.getElementById("error-grado");
+const errorGrado = document.getElementById("error-tipoPrograma");
 const errorCreditos = document.getElementById("error-creditos");
 const errorFecha = document.getElementById("error-fecha");
 const errorEstado = document.getElementById("error-estado");
+const errorEscuela = document.getElementById("error-escuela");
+const errorEgresado = document.getElementById("error-egresado");
 
 const mensajeExito = document.getElementById("mensaje-exito");
 
@@ -31,11 +37,19 @@ function validarNombre(nombre) {
 }
 
 function validarCarrera(carrera) {
-    return /^[A-Za-z]{3,}-\d{3,}$/.test(carrera)
+    return carrera !== "";
 }
 
-function validarGrado(grado) {
-    return /^.{8,}$/.test(grado)
+function validarEscuela(escuela) {
+    return escuela !== "";
+}
+
+function validarEgresado(egresado) {
+    return egresado !== "";
+}
+
+function validarGrado(tipoPrograma) {
+    return tipoPrograma !== "";
 }
 
 function validarCreditos(creditos) {
@@ -91,10 +105,34 @@ function resaltarCamposVacios() {
         errorCarrera.classList.add("texto-oculto");
     }
 
-    //Comprobación para el grado
-    const grado = inputGrado.value.trim();
-    //Si el campo de grado está vacío
-    if ( ! validarGrado ( grado ) ) {
+    //Comprobación para la escuela
+    const escuela = inputEscuela.value.trim();
+    //Si el campo de escuela está vacío
+    if ( ! validarEscuela ( escuela ) ) {
+        inputEscuela.classList.add("input-error");
+        errorEscuela.classList.remove("texto-oculto");
+        error = true;
+    } else {
+        inputEscuela.classList.remove("input-error");
+        errorEscuela.classList.add("texto-oculto");
+    }
+
+    //Comprobación para el egresado
+    const egresado = inputEgresado.value.trim();
+    //Si el campo de carrera está vacío
+    if ( ! validarEgresado ( egresado ) ) {
+        inputEgresado.classList.add("input-error");
+        errorEgresado.classList.remove("texto-oculto");
+        error = true;
+    } else {
+        inputEgresado.classList.remove("input-error");
+        errorEgresado.classList.add("texto-oculto");
+    }
+
+    //Comprobación para el tipoPrograma
+    const tipoPrograma = inputGrado.value.trim();
+    //Si el campo de tipoPrograma está vacío
+    if ( ! validarGrado ( tipoPrograma ) ) {
         inputGrado.classList.add("input-error");
         errorGrado.classList.remove("texto-oculto");
         error = true;
@@ -151,39 +189,54 @@ function validarCamposVacios(event) {
 
     const error = resaltarCamposVacios();
     if ( !error ) {
-        mensajeExito.classList.remove("texto-oculto");
         guardarRegistro();
-        limpiarFormulario();
     }
-}
-
-//JSON
-
-function guardarRegistro() {
-
-    //Objeto con info del formulario
-    const nuevoRegistro = {
-        codigo: inputCodigo.value.trim(),
-        nombre: inputNombre.value.trim(),
-        carrera: inputCarrera.value.trim(),
-        grado: inputGrado.value.trim(),
-        creditos: inputCreditos.value.trim(),
-        fecha: inputFecha.value.trim(),
-        estado: inputEstado.value.trim()
-    };
-
-    //Leer la info existente en LS o el vector vacío si aún no hay datos
-    const registros = JSON.parse(localStorage.getItem("registrosTitulos")) || [];
-    registros.push(nuevoRegistro);
-    localStorage.setItem("registrosTitulos", JSON.stringify(registros));
-
-    console.log(registros); 
 }
 
 function limpiarFormulario() {
     document.querySelector("form").reset();
 }
 
+//JSON
+
+async function guardarRegistro() {
+
+    //Objeto con info del formulario
+    const nuevoRegistro = {
+        codigo: inputCodigo.value.trim(),
+        nombre: inputNombre.value.trim(),
+        egresado: inputEgresado.value.trim(),
+        carrera: inputCarrera.value.trim(),
+        escuela: inputEscuela.value.trim(),
+        tipoPrograma: inputGrado.value.trim(),
+        creditos: inputCreditos.value.trim(),
+        annoGraduacion: new Date(inputFecha.value).getFullYear(),
+        estado: inputEstado.value.trim()
+    };
+
+    try {
+        const respuesta = await fetch(API, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(nuevoRegistro)
+        });
+
+        if (!respuesta.ok) throw new Error(`Error del servidor (${respuesta.status})`);
+        Swal.fire({
+            title: "Registro Exitoso",
+            text: "El título fue registrado exitosamente",
+            icon: "success"
+        });
+        limpiarFormulario();
+
+    } catch (error) {
+        Swal.fire({
+            title: "Error",
+            text: "No se pudo registrar el título: " + error.message,
+            icon: "error"
+        });
+    }
+}
 //botonRegistrar.addEventListener("click", validarCamposVacios);
 //Para que tambien funcione con enter
 document.querySelector("form").addEventListener("submit", validarCamposVacios);
