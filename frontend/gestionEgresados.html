@@ -1,6 +1,3 @@
-
-
-Gestionegresados · HTML
 <!DOCTYPE html>
 <html lang="es">
 
@@ -76,6 +73,7 @@ Gestionegresados · HTML
                     <span id="ayuda-identificacion" class="texto-oculto">
                         Ingrese la cédula del egresado, por ejemplo: 1-1234-5678
                     </span>
+                    <span id="error-identificacion" class="mensaje-error" role="alert"></span>
                 </div>
 
                 <!-- Nombre completo -->
@@ -93,6 +91,7 @@ Gestionegresados · HTML
                     <span id="ayuda-nombre" class="texto-oculto">
                         Ingrese el nombre completo del egresado
                     </span>
+                    <span id="error-nombre" class="mensaje-error" role="alert"></span>
                 </div>
 
                 <!-- Correo electronico -->
@@ -110,6 +109,7 @@ Gestionegresados · HTML
                     <span id="ayuda-correo" class="texto-oculto">
                         Ingrese el correo institucional del egresado
                     </span>
+                    <span id="error-correo" class="mensaje-error" role="alert"></span>
                 </div>
 
                 <!-- Telefono -->
@@ -125,8 +125,9 @@ Gestionegresados · HTML
                            required
                            aria-required="true">
                     <span id="ayuda-telefono" class="texto-oculto">
-                        Ingrese el número de teléfono del egresado, por ejemplo: 8888-8888
+                        Ingrese el número de teléfono del egresado, sin guiones, por ejemplo: 88888888
                     </span>
+                    <span id="error-telefono" class="mensaje-error" role="alert"></span>
                 </div>
 
                 <!-- Fecha de registro -->
@@ -143,6 +144,7 @@ Gestionegresados · HTML
                     <span id="ayuda-fecha" class="texto-oculto">
                         Seleccione la fecha de registro del egresado
                     </span>
+                    <span id="error-fecha" class="mensaje-error" role="alert"></span>
                 </div>
 
                 <!-- Lugar de trabajo: empresa -->
@@ -157,6 +159,7 @@ Gestionegresados · HTML
                     <span id="ayuda-trabajo" class="texto-oculto">
                         Ingrese el lugar de trabajo del egresado. Si completa este campo, también debe completar Puesto y Fecha de inicio.
                     </span>
+                    <span id="error-lugar-trabajo" class="mensaje-error" role="alert"></span>
                 </div>
 
                 <!-- Lugar de trabajo: puesto -->
@@ -171,6 +174,7 @@ Gestionegresados · HTML
                     <span id="ayuda-puesto-trabajo" class="texto-oculto">
                         Ingrese el puesto que ocupa u ocupó en ese lugar de trabajo. Obligatorio solo si completó el campo Empresa.
                     </span>
+                    <span id="error-puesto-trabajo" class="mensaje-error" role="alert"></span>
                 </div>
 
                 <!-- Lugar de trabajo: fecha de inicio -->
@@ -184,6 +188,7 @@ Gestionegresados · HTML
                     <span id="ayuda-fecha-inicio-trabajo" class="texto-oculto">
                         Ingrese la fecha en la que inició en ese puesto. Obligatorio solo si completó el campo Empresa.
                     </span>
+                    <span id="error-fecha-inicio-trabajo" class="mensaje-error" role="alert"></span>
                 </div>
 
                 <!-- Botones de acción -->
