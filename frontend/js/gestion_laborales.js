@@ -296,8 +296,15 @@ if (tabla === null) {
         "<tr>" +
         "<th>Empresa</th>" +
         "<th>Puesto</th>" +
+        "<th>Descripción</th>" +
+        "<th>Área profesional</th>" +
         "<th>Modalidad</th>" +
+        "<th>Ubicación</th>" +
+        "<th>Fecha de publicación</th>" +
+        "<th>Fecha de vencimiento</th>" +
+        "<th>Contacto</th>" +
         "<th>Estado</th>" +
+        "<th>Publicado por</th>" +
         "</tr>" +
         "</thead>" +
         "<tbody></tbody>";
@@ -315,12 +322,26 @@ cuerpo.innerHTML = "";
 
 for (let i = 0; i < oportunidades.length; i++) {
 
+    const op = oportunidades[i];
+
+    //publicadoPor puede ser null o sino, muestra el email para no mostrar contraseñas
+    const publicadoPor = op.publicadoPor
+    ? op.publicadoPor.email
+    : "N/A";
+
     cuerpo.innerHTML +=
         "<tr>" +
-        "<td>" + oportunidades[i].empresa + "</td>" +
-        "<td>" + oportunidades[i].puesto + "</td>" +
-        "<td>" + oportunidades[i].modalidad + "</td>" +
-        "<td>" + oportunidades[i].estado + "</td>" +
+        "<td>" + op.empresa + "</td>" +
+        "<td>" + op.puesto + "</td>" +
+        "<td>" + op.descripcion + "</td>" +
+        "<td>" + op.areaProfesional + "</td>" +
+        "<td>" + op.modalidad + "</td>" +
+        "<td>" + op.ubicacion + "</td>" +
+        "<td>" + op.fechaPublicacion.substring(0, 10) + "</td>" +
+        "<td>" + op.fechaVencimiento.substring(0, 10) + "</td>" +
+        "<td>" + op.contacto + "</td>" +
+        "<td>" + op.estado + "</td>" +
+        "<td>" + publicadoPor + "</td>" +
         "</tr>";
 
 }
@@ -348,8 +369,15 @@ if (tabla === null) {
         "<tr>" +
         "<th>Empresa</th>" +
         "<th>Puesto</th>" +
+        "<th>Descripción</th>" +
+        "<th>Área profesional</th>" +
         "<th>Modalidad</th>" +
+        "<th>Ubicación</th>" +
+        "<th>Fecha de publicación</th>" +
+        "<th>Fecha de vencimiento</th>" +
+        "<th>Contacto</th>" +
         "<th>Estado</th>" +
+        "<th>Publicado por</th>" +
         "</tr>" +
         "</thead>" +
         "<tbody></tbody>";
@@ -363,7 +391,7 @@ let cuerpo = tabla.querySelector("tbody");
 
 cuerpo.innerHTML =
     "<tr>" +
-    "<td colspan='4'>" +
+    "<td colspan='11'>" +
     mensaje +
     "</td>" +
     "</tr>";
