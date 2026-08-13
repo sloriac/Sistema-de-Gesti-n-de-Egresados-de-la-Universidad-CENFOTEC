@@ -15,6 +15,11 @@ const inputFechaRegistro = document.getElementById("fecha-registro");
 const inputLugarTrabajo = document.getElementById("lugar-trabajo");
 const inputPuestoTrabajo = document.getElementById("puesto-trabajo");
 const inputFechaInicioTrabajo = document.getElementById("fecha-inicio-trabajo");
+const inputFechaFinTrabajo = document.getElementById("fecha-fin-trabajo");
+const inputDescripcionTrabajo = document.getElementById("descripcion-trabajo");
+const inputAreaProfesional = document.getElementById("area-profesional");
+const inputLinkedin = document.getElementById("linkedin");
+const inputPortafolio = document.getElementById("portafolio");
 
 const btnRegistrarEgresado = document.getElementById("guardar-egresado");
 
@@ -55,9 +60,17 @@ function validarLugarTrabajoCompleto() {
     const empresa = inputLugarTrabajo.value.trim();
     const puesto = inputPuestoTrabajo.value.trim();
     const fechaInicio = inputFechaInicioTrabajo.value;
+    const fechaFin = inputFechaFinTrabajo.value;
+    const descripcion = inputDescripcionTrabajo.value.trim();
 
-    const algunoLleno = empresa !== "" || puesto !== "" || fechaInicio !== "";
-    const todosLlenos = empresa !== "" && puesto !== "" && fechaInicio !== "";
+    // "Algo lleno" incluye los 5 campos del grupo: si la persona empieza a
+    // describir un puesto (aunque sea solo en fechaFin o descripción) sin
+    // poner empresa/puesto/fechaInicio, se le debe avisar igual.
+    const algunoLleno = empresa !== "" || puesto !== "" || fechaInicio !== "" || fechaFin !== "" || descripcion !== "";
+
+    // Pero SOLO empresa, puesto y fechaInicio son obligatorios según el
+    // modelo Mongoose. fechaFin y descripcion siguen siendo opcionales.
+    const basicosCompletos = empresa !== "" && puesto !== "" && fechaInicio !== "";
 
     // Limpiar marcas de error primero
     inputLugarTrabajo.classList.remove("input-error");
@@ -67,8 +80,8 @@ function validarLugarTrabajoCompleto() {
     errorPuestoTrabajo.textContent = "";
     errorFechaInicioTrabajo.textContent = "";
 
-    if (algunoLleno && !todosLlenos) {
-        const mensajeGrupo = "Si completa uno de estos campos, debe completar los tres (Empresa, Puesto y Fecha de inicio).";
+    if (algunoLleno && !basicosCompletos) {
+        const mensajeGrupo = "Para agregar una experiencia laboral, complete al menos Empresa, Puesto y Fecha de inicio.";
         if (empresa === "") {
             inputLugarTrabajo.classList.add("input-error");
             errorLugarTrabajo.textContent = mensajeGrupo;
@@ -81,10 +94,10 @@ function validarLugarTrabajoCompleto() {
             inputFechaInicioTrabajo.classList.add("input-error");
             errorFechaInicioTrabajo.textContent = mensajeGrupo;
         }
-        return false; // hay un error: faltan campos del grupo
+        return false; // hay un error: faltan campos obligatorios del grupo
     }
 
-    return true; // o está todo vacío, o está todo completo: ambos casos son válidos
+    return true; // o está todo vacío, o al menos los obligatorios están completos
 }
 
 /* --- Fecha de registro automática --- */
@@ -175,22 +188,49 @@ async function guardarEgresado() {
         fechaRegistro: inputFechaRegistro.value
     };
 
-    // lugaresTrabajo sigue el subesquema real del backend: si se llenó
-    // el grupo (ya validado antes en validarLugarTrabajoCompleto),
-    // se manda como un arreglo con un objeto que trae los tres campos
-    // obligatorios (empresa, puesto, fechaInicio).
+    // lugaresTrabajo sigue el subesquema real del backend: si se llenaron
+    // los campos obligatorios del grupo (empresa/puesto/fechaInicio),
+    // se manda como un arreglo con un objeto. fechaFin y descripcion
+    // se agregan al mismo objeto solo si la persona los llenó,
+    // porque son opcionales dentro del subesquema.
     const empresa = inputLugarTrabajo.value.trim();
     const puesto = inputPuestoTrabajo.value.trim();
     const fechaInicio = inputFechaInicioTrabajo.value;
+    const fechaFin = inputFechaFinTrabajo.value;
+    const descripcionTrabajo = inputDescripcionTrabajo.value.trim();
 
     if (empresa !== "" && puesto !== "" && fechaInicio !== "") {
-        nuevoEgresado.lugaresTrabajo = [
-            {
-                empresa: empresa,
-                puesto: puesto,
-                fechaInicio: fechaInicio
-            }
-        ];
+        const lugarTrabajo = {
+            empresa: empresa,
+            puesto: puesto,
+            fechaInicio: fechaInicio
+        };
+
+        if (fechaFin !== "") {
+            lugarTrabajo.fechaFin = fechaFin;
+        }
+        if (descripcionTrabajo !== "") {
+            lugarTrabajo.descripcion = descripcionTrabajo;
+        }
+
+        nuevoEgresado.lugaresTrabajo = [lugarTrabajo];
+    }
+
+    // areaProfesional, linkedin y portafolio son campos del egresado en
+    // general (no de un trabajo en particular), así que van al nivel
+    // superior del objeto, y solo se agregan si tienen valor.
+    const areaProfesional = inputAreaProfesional.value.trim();
+    const linkedin = inputLinkedin.value.trim();
+    const portafolio = inputPortafolio.value.trim();
+
+    if (areaProfesional !== "") {
+        nuevoEgresado.areaProfesional = areaProfesional;
+    }
+    if (linkedin !== "") {
+        nuevoEgresado.linkedin = linkedin;
+    }
+    if (portafolio !== "") {
+        nuevoEgresado.portafolio = portafolio;
     }
 
     try {
@@ -270,11 +310,13 @@ function mostrarEgresados(egresados) {
         // aquí solo se muestra la parte de la fecha
         const fecha = egresado.fechaRegistro ? egresado.fechaRegistro.split("T")[0] : "";
 
-        // lugaresTrabajo es un arreglo de objetos { empresa, puesto, fechaInicio, ... }
+        // lugaresTrabajo es un arreglo de objetos { empresa, puesto, fechaInicio, fechaFin, descripcion }
         const lugares = (egresado.lugaresTrabajo && egresado.lugaresTrabajo.length > 0)
             ? egresado.lugaresTrabajo.map(l => {
                 const inicio = l.fechaInicio ? l.fechaInicio.split("T")[0] : "?";
-                return `${l.puesto} en ${l.empresa} (desde ${inicio})`;
+                const fin = l.fechaFin ? l.fechaFin.split("T")[0] : "actualidad";
+                const desc = l.descripcion ? ` — ${l.descripcion}` : "";
+                return `${l.puesto} en ${l.empresa} (${inicio} a ${fin})${desc}`;
             }).join("; ")
             : "No especificado";
 
@@ -285,6 +327,9 @@ function mostrarEgresados(egresados) {
             <p><strong>Teléfono:</strong> ${egresado.telefono}</p>
             <p><strong>Fecha de registro:</strong> ${fecha}</p>
             <p><strong>Lugar(es) de trabajo:</strong> ${lugares}</p>
+            ${egresado.areaProfesional ? `<p><strong>Área profesional:</strong> ${egresado.areaProfesional}</p>` : ""}
+            ${egresado.linkedin ? `<p><strong>LinkedIn:</strong> ${egresado.linkedin}</p>` : ""}
+            ${egresado.portafolio ? `<p><strong>Portafolio:</strong> ${egresado.portafolio}</p>` : ""}
         `;
         contenedorEgresados.appendChild(nuevoArticulo);
     });

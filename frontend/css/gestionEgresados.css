@@ -96,13 +96,20 @@ body {
     margin-bottom: 6px;
 }
 
-.campo-grupo input {
+.campo-grupo input,
+.campo-grupo textarea {
     padding: 10px;
     border: 1px solid var(--primary-color-4);
     border-radius: 8px;
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
+    font-family: inherit;
+}
+
+.campo-grupo textarea {
+    resize: vertical;
+    min-height: 80px;
 }
 
 /* Botones */
