@@ -257,7 +257,7 @@ async function obtenerTitulos() {
 }
 
 function mostrarTabla(titulos) {
-    const tbody = document.querySelector("table tbody");
+    const tbody = document.querySelector("#tabla-titulos tbody");
     tbody.innerHTML = "";
     titulos.forEach(titulo => {
         const fila = document.createElement("tr");
@@ -267,6 +267,7 @@ function mostrarTabla(titulos) {
         <td>${titulo.escuela?.nombre ?? "-"}</td>
         <td>${titulo.annoGraduacion}</td>
         <td>${titulo.egresado?.nombreCompleto ??  "-"}</td>
+        <td>${titulo.egresado?.identificacion ??  "-"}</td>
         <td>${titulo.estado}</td>
         `;
         tbody.appendChild(fila);

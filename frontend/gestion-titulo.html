@@ -17,135 +17,236 @@
             <p class="subtitulo">Complete todos los campos obligatorios para registrar un título académico.</p>
         </header>
 
-        <section class="tarjeta">
+        <section class="contenedor-principal">
 
-            <form action="" novalidate>
+            <section class="tarjeta">
 
-                <p id="mensaje-exito" class="texto-oculto">Título registrado correctamente.</p>
+                <form action="" novalidate>
 
-                <!-- Código de título -->
-                <div>
-                    <label for="codigo-titulo">Código de título</label>
-                    <span aria-hidden="true">*</span>
+                    <p id="mensaje-exito" class="texto-oculto">Título registrado correctamente.</p>
+
+                    <!-- Código de título -->
+                    <div>
+                        <label for="codigo-titulo">Código de título</label>
+                        <span aria-hidden="true">*</span>
+
+                        <div>
+                            <input type="text" id="codigo-titulo" placeholder="ej. TIT-027" aria-describedby="ayuda-codigo-titulo" required aria-required="true">
+                            <span id="ayuda-codigo-titulo" class="texto-oculto">Ingrese el código único del título, por ejemplo: BTIC-025</span>
+                            <span id="error-codigo" class="mensaje-error texto-oculto">Ingrese un código válido (mínimo 3 letras y 3 números).</span>
+                        </div>
+                    </div>
+
+                    <!-- Nombre del título -->
+                    <div>
+                        <label for="nombre-titulo">Nombre del título</label>
+                        <span aria-hidden="true">*</span>
+
+                        <div>
+                            <input type="text" id="nombre-titulo" placeholder="ej. Bachillerato en tecnologías de la información y comunicación" aria-describedby="ayuda-nombre-titulo" required aria-required="true">
+                            <span id="ayuda-nombre-titulo" class="texto-oculto">Ingrese el nombre completo del título tal como se otorga, por ejemplo: Bachillerato en tecnologías de la información y comunicación</span>
+                            <span id="error-nombre" class="mensaje-error texto-oculto">Ingrese un nombre válido (mínimo 10 caracteres).</span>
+                        </div>
+                    </div>
+
+                    <!-- Egresado -->
+                    <div>
+                        <label for="egresado-titulo">Egresado</label>
+                        <span aria-hidden="true">*</span>
+
+                        <div>
+                            <input type="text" id="egresado-titulo" placeholder="ID del egresado" aria-describedby="ayuda-egresado-titulo" required aria-required="true">
+                            <span id="ayuda-egresado-titulo" class="texto-oculto">Ingrese el ID del egresado al que pertenece este título.</span>
+                            <span id="error-egresado" class="mensaje-error texto-oculto">Ingrese un ID de egresado válido.</span>
+                        </div>
+                    </div>
+
+                    <!-- Escuela -->
+                    <div>
+                        <label for="escuela-titulo">Escuela</label>
+                        <span aria-hidden="true">*</span>
+
+                        <div>
+                            <input type="text" id="escuela-titulo" placeholder="ID de la escuela" aria-describedby="ayuda-escuela-titulo" required aria-required="true">
+                            <span id="ayuda-escuela-titulo" class="texto-oculto">Ingrese el ID de la escuela a la que pertenece este título.</span>
+                            <span id="error-escuela" class="mensaje-error texto-oculto">Ingrese un ID de escuela válido.</span>
+                        </div>
+                    </div>
+
+                    <!-- Carrera -->
+                    <div>
+                        <label for="carrera-titulo">Carrera asociada</label>
+                        <span aria-hidden="true">*</span>
+
+                        <div>
+                            <input type="text" id="carrera-titulo" placeholder="ID de la carrera" aria-describedby="ayuda-carrera-titulo" required aria-required="true">
+                            <span id="ayuda-carrera-titulo" class="texto-oculto">Ingrese el ID de la carrera a la que pertenece este título.</span>
+                            <span id="error-carrera" class="mensaje-error texto-oculto">Ingrese un ID de carrera válido.</span>
+                        </div>
+                    </div>
+
+                    <!-- Nivel o grado académico -->
+                    <div>
+                        <label for="nivel-titulo">Nivel o grado académico</label>
+                        <span aria-hidden="true">*</span>
+
+                        <div>
+
+                            <select name="tipoPrograma-titulo" id="tipoPrograma-titulo">
+                                <option value="Técnico">Técnico</option>
+                                <option value="Bachillerato">Bachillerato</option>
+                                <option value="Maestría">Maestría</option>
+                            </select>
+                                
+                            <span id="ayuda-nivel-titulo" class="texto-oculto">Seleccione el nivel o grado académico que otorga este título, por ejemplo: Técnico, Bachillerato, Maestría.</span>
+                            <span id="error-tipoPrograma" class="mensaje-error texto-oculto">Ingrese un grado válido (mínimo 8 caracteres).</span>
+                        </div>
+                    </div>
+
+                    <!-- Créditos requeridos -->
+                    <div>
+                        <label for="creditos-titulo">Créditos requeridos</label>
+                        <span aria-hidden="true">*</span>
+
+                        <div>
+                            <input type="number" id="creditos-titulo" placeholder="ej. 160" aria-describedby="ayuda-creditos-titulo" required aria-required="true">
+                            <span id="ayuda-creditos-titulo" class="texto-oculto">Ingrese la cantidad de créditos requeridos para optar por este título, por ejemplo: 160</span>
+                            <span id="error-creditos" class="mensaje-error texto-oculto">Ingrese una cantidad de créditos válida (mínimo 2 caracteres).</span>
+                        </div>
+                    </div>
+
+                    <!-- Fecha de vigencia -->
+                    <div>
+                        <label for="fecha-titulo">Fecha de vigencia</label>
+                        <span aria-hidden="true">*</span>
+
+                        <div>
+                            <input type="date" id="fecha-titulo" placeholder="ej. 01/07/2026" aria-describedby="ayuda-fecha-titulo" required aria-required="true">
+                            <span id="ayuda-fecha-titulo" class="texto-oculto">Ingrese la fecha desde la cual el título se encuentra vigente, en formato día/mes/año.</span>
+                            <span id="error-fecha" class="mensaje-error texto-oculto">Ingrese una fecha válida.</span>
+                        </div>
+                    </div>
+
+                    <!-- Estado -->
+                    <div>
+                        <label for="estado-titulo">Estado</label>
+                        <span aria-hidden="true">*</span>
+
+                        <div>
+                            <input type="text" id="estado-titulo" placeholder="ej. Vigente" aria-describedby="ayuda-estado-titulo" required aria-required="true">
+                            <span id="ayuda-estado-titulo" class="texto-oculto">Indique si el título se encuentra vigente o descontinuado.</span>
+                            <span id="error-estado" class="mensaje-error texto-oculto">Ingrese un estado válido (mínimo 7 caracteres).</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="registrar-titulo" class="boton">Registrar título</button>
+                    <button type="button" id="mostrar-titulos" class="boton">Mostrar títulos</button>
+
+                </form>
+
+            </section>
+
+        
+
+            <section class="tarjeta">
+                <section class="contenedor-ayuda-ids">
+                    <div>
+                        <h3>IDs de Egresados Registrados</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Identificación</th>
+                                    <th>ID</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Kristel Badilla</td>
+                                    <td>876987123</td>
+                                    <td>6a7a81a33c956cb0c0cae53f</td>
+                                </tr>
+                                <tr>
+                                    <td>Manuel Solis</td>
+                                    <td>547098764</td>
+                                    <td>6a7a7adb3c956cb0c0cae53c</td>
+                                </tr>
+                                <tr>
+                                    <td>Allan Campos</td>
+                                    <td>875308642</td>
+                                    <td>6a7a79e73c956cb0c0cae53b</td>
+                                </tr>
+                                <tr>
+                                    <td>Gabriel Araya</td>
+                                    <td>123454321</td>
+                                    <td>6a7a793b3c956cb0c0cae53a</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <div>
-                        <input type="text" id="codigo-titulo" placeholder="ej. TIT-027" aria-describedby="ayuda-codigo-titulo" required aria-required="true">
-                        <span id="ayuda-codigo-titulo" class="texto-oculto">Ingrese el código único del título, por ejemplo: BTIC-025</span>
-                        <span id="error-codigo" class="mensaje-error texto-oculto">Ingrese un código válido (mínimo 3 letras y 3 números).</span>
-                    </div>
-                </div>
+                        <h3>IDs de Escuelas</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>ID</th>
+                                </tr>
+                            </thead>
 
-                <!-- Nombre del título -->
-                <div>
-                    <label for="nombre-titulo">Nombre del título</label>
-                    <span aria-hidden="true">*</span>
+                            <tbody>
+                                <tr>
+                                    <td>Escuela Ciberseguridad</td>
+                                    <td>6a6bf93c4025af51c826d161</td>
+                                </tr>
+                                <tr>
+                                    <td>Escuela de Ingeniería</td>
+                                    <td>6a6bf95b4025af51c826d162</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <div>
-                        <input type="text" id="nombre-titulo" placeholder="ej. Bachillerato en tecnologías de la información y comunicación" aria-describedby="ayuda-nombre-titulo" required aria-required="true">
-                        <span id="ayuda-nombre-titulo" class="texto-oculto">Ingrese el nombre completo del título tal como se otorga, por ejemplo: Bachillerato en tecnologías de la información y comunicación</span>
-                        <span id="error-nombre" class="mensaje-error texto-oculto">Ingrese un nombre válido (mínimo 10 caracteres).</span>
+                        <h3>IDs de Carreras</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>ID</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Ingeniería en Sistemas</td>
+                                    <td>6a6bf45d4025af51c826d15f</td>
+                                </tr>
+                                <tr>
+                                    <td>Ingeniería del Software</td>
+                                    <td>6a73f07347870f8531ba3d6f</td>
+                                </tr>
+                                <tr>
+                                    <td>Técnico en Ciberseguirdad</td>
+                                    <td>6a73fe836a0211456097cd7d</td>
+                                </tr>
+                                <tr>
+                                    <td>Ingeniería en Tecnologías de la Información</td>
+                                    <td>6a7a56dde6840c9d9a641088</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-
-                <!-- Egresado -->
-                <div>
-                    <label for="egresado-titulo">Egresado</label>
-                    <span aria-hidden="true">*</span>
-
-                    <div>
-                        <input type="text" id="egresado-titulo" placeholder="ID del egresado" aria-describedby="ayuda-egresado-titulo" required aria-required="true">
-                        <span id="ayuda-egresado-titulo" class="texto-oculto">Ingrese el ID del egresado al que pertenece este título.</span>
-                        <span id="error-egresado" class="mensaje-error texto-oculto">Ingrese un ID de egresado válido.</span>
-                    </div>
-                </div>
-
-                <!-- Escuela -->
-                <div>
-                    <label for="escuela-titulo">Escuela</label>
-                    <span aria-hidden="true">*</span>
-
-                    <div>
-                        <input type="text" id="escuela-titulo" placeholder="ID de la escuela" aria-describedby="ayuda-escuela-titulo" required aria-required="true">
-                        <span id="ayuda-escuela-titulo" class="texto-oculto">Ingrese el ID de la escuela a la que pertenece este título.</span>
-                        <span id="error-escuela" class="mensaje-error texto-oculto">Ingrese un ID de escuela válido.</span>
-                    </div>
-                </div>
-
-                <!-- Carrera -->
-                <div>
-                    <label for="carrera-titulo">Carrera asociada</label>
-                    <span aria-hidden="true">*</span>
-
-                    <div>
-                        <input type="text" id="carrera-titulo" placeholder="ID de la carrera" aria-describedby="ayuda-carrera-titulo" required aria-required="true">
-                        <span id="ayuda-carrera-titulo" class="texto-oculto">Ingrese el ID de la carrera a la que pertenece este título.</span>
-                        <span id="error-carrera" class="mensaje-error texto-oculto">Ingrese un ID de carrera válido.</span>
-                    </div>
-                </div>
-
-                <!-- Nivel o grado académico -->
-                <div>
-                    <label for="nivel-titulo">Nivel o grado académico</label>
-                    <span aria-hidden="true">*</span>
-
-                    <div>
-
-                        <select name="tipoPrograma-titulo" id="tipoPrograma-titulo">
-                            <option value="Técnico">Técnico</option>
-                            <option value="Bachillerato">Bachillerato</option>
-                            <option value="Maestría">Maestría</option>
-                        </select>
-                            
-                        <span id="ayuda-nivel-titulo" class="texto-oculto">Seleccione el nivel o grado académico que otorga este título, por ejemplo: Técnico, Bachillerato, Maestría.</span>
-                        <span id="error-tipoPrograma" class="mensaje-error texto-oculto">Ingrese un grado válido (mínimo 8 caracteres).</span>
-                    </div>
-                </div>
-
-                <!-- Créditos requeridos -->
-                <div>
-                    <label for="creditos-titulo">Créditos requeridos</label>
-                    <span aria-hidden="true">*</span>
-
-                    <div>
-                        <input type="number" id="creditos-titulo" placeholder="ej. 160" aria-describedby="ayuda-creditos-titulo" required aria-required="true">
-                        <span id="ayuda-creditos-titulo" class="texto-oculto">Ingrese la cantidad de créditos requeridos para optar por este título, por ejemplo: 160</span>
-                        <span id="error-creditos" class="mensaje-error texto-oculto">Ingrese una cantidad de créditos válida (mínimo 2 caracteres).</span>
-                    </div>
-                </div>
-
-                <!-- Fecha de vigencia -->
-                <div>
-                    <label for="fecha-titulo">Fecha de vigencia</label>
-                    <span aria-hidden="true">*</span>
-
-                    <div>
-                        <input type="date" id="fecha-titulo" placeholder="ej. 01/07/2026" aria-describedby="ayuda-fecha-titulo" required aria-required="true">
-                        <span id="ayuda-fecha-titulo" class="texto-oculto">Ingrese la fecha desde la cual el título se encuentra vigente, en formato día/mes/año.</span>
-                        <span id="error-fecha" class="mensaje-error texto-oculto">Ingrese una fecha válida.</span>
-                    </div>
-                </div>
-
-                <!-- Estado -->
-                <div>
-                    <label for="estado-titulo">Estado</label>
-                    <span aria-hidden="true">*</span>
-
-                    <div>
-                        <input type="text" id="estado-titulo" placeholder="ej. Vigente" aria-describedby="ayuda-estado-titulo" required aria-required="true">
-                        <span id="ayuda-estado-titulo" class="texto-oculto">Indique si el título se encuentra vigente o descontinuado.</span>
-                        <span id="error-estado" class="mensaje-error texto-oculto">Ingrese un estado válido (mínimo 7 caracteres).</span>
-                    </div>
-                </div>
-
-                <button type="submit" id="registrar-titulo" class="boton">Registrar título</button>
-                <button type="button" id="mostrar-titulos" class="boton">Mostrar títulos</button>
-
-            </form>
-
+                </section>
+            </section>
         </section>
 
-        <section class="tarjeta">
-            <table>
+            
+
+        <section class="tarjeta" id="get-titulos">
+            <table id="tabla-titulos">
                 <thead>
                     <tr>
                         <th>Programa</th>
@@ -153,6 +254,7 @@
                         <th>Escuela</th>
                         <th>Año de Graduación</th>
                         <th>Egresado</th>
+                        <th>Cédula</th>
                         <th>Estado</th>
                     </tr>
                 </thead>
@@ -165,6 +267,8 @@
 
             </table>
         </section>
+        
+        
 
     </main>
 
