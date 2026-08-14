@@ -191,6 +191,79 @@
                     <span id="error-fecha-inicio-trabajo" class="mensaje-error" role="alert"></span>
                 </div>
 
+                <!-- Lugar de trabajo: fecha final -->
+                <div class="campo-grupo">
+                    <label for="fecha-fin-trabajo">
+                        Fecha final en el puesto
+                    </label>
+                    <input type="date"
+                           id="fecha-fin-trabajo"
+                           aria-describedby="ayuda-fecha-fin-trabajo">
+                    <span id="ayuda-fecha-fin-trabajo" class="texto-oculto">
+                        Ingrese la fecha en la que finalizó ese puesto, si ya no trabaja ahí. Campo opcional.
+                    </span>
+                    <span id="error-fecha-fin-trabajo" class="mensaje-error" role="alert"></span>
+                </div>
+
+                <!-- Lugar de trabajo: descripción -->
+                <div class="campo-grupo">
+                    <label for="descripcion-trabajo">
+                        Descripción del puesto
+                    </label>
+                    <textarea id="descripcion-trabajo"
+                              placeholder="ej. Desarrollo de aplicaciones web con React y Node.js"
+                              aria-describedby="ayuda-descripcion-trabajo"></textarea>
+                    <span id="ayuda-descripcion-trabajo" class="texto-oculto">
+                        Describa brevemente las funciones realizadas en ese puesto. Campo opcional.
+                    </span>
+                    <span id="error-descripcion-trabajo" class="mensaje-error" role="alert"></span>
+                </div>
+
+                <!-- Área profesional del egresado -->
+                <div class="campo-grupo">
+                    <label for="area-profesional">
+                        Área Profesional del puesto
+                    </label>
+                    <input type="text"
+                           id="area-profesional"
+                           placeholder="ej. Tecnología"
+                           aria-describedby="ayuda-area-profesional">
+                    <span id="ayuda-area-profesional" class="texto-oculto">
+                        Ingrese el área profesional general del egresado, por ejemplo: Tecnología. Campo opcional.
+                    </span>
+                    <span id="error-area-profesional" class="mensaje-error" role="alert"></span>
+                </div>
+
+                <!-- LinkedIn del egresado -->
+                <div class="campo-grupo">
+                    <label for="linkedin">
+                        Link de Linkedin
+                    </label>
+                    <input type="text"
+                           id="linkedin"
+                           placeholder="ej. linkedin.com/in/juanperez"
+                           aria-describedby="ayuda-linkedin">
+                    <span id="ayuda-linkedin" class="texto-oculto">
+                        Ingrese el enlace al perfil de LinkedIn del egresado. Campo opcional.
+                    </span>
+                    <span id="error-linkedin" class="mensaje-error" role="alert"></span>
+                </div>
+
+                <!-- Portafolio del egresado -->
+                <div class="campo-grupo">
+                    <label for="portafolio">
+                        Link de portafolio
+                    </label>
+                    <input type="text"
+                           id="portafolio"
+                           placeholder="ej. juanperez.dev"
+                           aria-describedby="ayuda-portafolio">
+                    <span id="ayuda-portafolio" class="texto-oculto">
+                        Ingrese el enlace al portafolio del egresado. Campo opcional.
+                    </span>
+                    <span id="error-portafolio" class="mensaje-error" role="alert"></span>
+                </div>
+
                 <!-- Botones de acción -->
                 <div class="botones-grupo">
                     <button type="button"
